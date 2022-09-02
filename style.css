@@ -7,21 +7,31 @@
 :root {
   font-size: 62.5%;
 
-  --ff-primary: 'Poppins', sans-serif;
-  --text-color: #303030;
+  --ff-primary: 'Roboto', sans-serif;
+  --primary-text-color: #E1E1E6;
+  --secundary-text-color: #F75A68;
 
   --hue: 194;
   --primary-color: hsl(var(--hue), 100%, 63%);
+  --bg-color: #000000;
+  --th-bg-color: #092D38;
+  --tr-bg-primary: #06161B80;
+  --tr-bg-secundary: #4A808C;
+
+  --btn-primary-color: #065E7C;
+  --bg-input-color: #06181C;
+
 }
 
 body {
   font-size: 1.6rem;
-  color: var(--text-color);
-  background-color: rgb(250, 254, 255);
+  color: var(--primary-text-color);
+  background-color: var(--bg-color);
 }
 
 body * {
   font-family: var(--ff-primary);
+  font-weight: 700;
 }
 
 .sr-only { /* screen reader only usar sempre no label quando houver um input para esconder o label para que somente seja lido para acessibilidade */
@@ -38,7 +48,7 @@ body * {
 
 #app {
   padding: 2rem;
-  max-width: 500px;
+  max-width: 112rem;
   margin: 0 auto; /*alinha ao centro*/
 }
 
@@ -47,45 +57,60 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  margin: 2.5rem 0;
-}
-
-header h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
+  margin: 11.5rem 0 8.7rem 0;
 }
 
 .search {
   display: flex;
   align-items: center;
+  gap: .8rem;
 }
 
 .search input {
-  height: 3.2rem;
-  border: 1px solid #ccc;
-  border-radius: .4rem 0 0 .4rem;
-  padding: 0 .8rem;
+  width: 46.2rem;
+  height: 4.8rem;
+  
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 100%;
+
+  color: #FFFFFF;
+
+  padding-left: 1.6rem;
+
+  background: var(--bg-input-color);
+  border: none;
 }
 
 .search button {
-  background-color: var(--primary-color);
-  border-radius: 0 .4rem .4rem 0;
-  height: 3.2rem;
-  border: none;
-  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+
+  color: #FFFFFF;
+  text-transform: uppercase;
+
+  background-color: var(--btn-primary-color);
+  border-radius: .5rem;
+  padding: 1.2rem 3.2rem;
 
   cursor: pointer;
 }
 
 .search button:hover {
-  filter: brightness(1.1);
+  background-color: #FFFFFF;
+  color: var(--btn-primary-color);
+}
+
+.search button:hover svg path {
+  fill: var(--btn-primary-color);
 }
 
 table {
   width: 100%;
   border-collapse: collapse; /* tira os espaços entre os campos da tabela */
-
-  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--tr-bg-primary);
+  margin-bottom: 11.6rem;
 }
 
 table * {
@@ -94,18 +119,18 @@ table * {
 }
 
 table th {
-  background-color: var(--primary-color);
+  background-color: var(--th-bg-color);
   text-align: left;
   font-weight: normal;
   padding: 1.5rem;
 }
 
 table th:first-child {
-  border-top-left-radius: .4rem;
+  border-top-left-radius: 1.2rem;
 }
 
 table th:last-child {
-  border-top-right-radius: .4rem;
+  border-top-right-radius: 1.2rem;
 }
 
 table td {
@@ -114,11 +139,13 @@ table td {
 }
 
 table tr:nth-child(odd) { /* odd = impar */
-  background: #ddd;
+  background: var(--tr-bg-primary);
+  border: 1px solid var(--tr-bg-secundary);
 }
 
 table tr:nth-child(even) { /* even = par */
-  background: #eee;
+  background: var(--tr-bg-secundary);
+  border: 1px solid var(--tr-bg-secundary);
 }
 
 td.user {
@@ -140,14 +167,18 @@ td.user a {
 }
 
 td.user a p {
-  font-weight: bold;
+  font-weight: 700;
+}
+
+td.user a span {
+  font-weight: 400;
 }
 
 td .remove {
   background: none;
   border: none;
 
-  color: red;
+  color: var(--secundary-text-color);
 
   cursor: pointer;
 }
