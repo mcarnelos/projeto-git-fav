@@ -65,7 +65,7 @@ export class FavoritesView extends Favorites {
   constructor(root) {
     super(root)
  
-    this.tbody = this.root.querySelector('table tbody')
+    this.tbody = this.root.querySelector('table .favoritos')
 
     this.update()
     this.onadd()
@@ -73,11 +73,21 @@ export class FavoritesView extends Favorites {
 
   //define a funcionalidade quando clicado o botão + ele busca apenas o value que está no input
   onadd() {
-    const addButton = this.root.querySelector('.search button')
-    addButton.onclick = () => { 
-      const { value } = this.root.querySelector('.search input')
+    const userSearch = this.root.querySelector('.search button')
+    const inputSearch = this.root.querySelector('#input-search')
 
-      //chama a função add
+    inputSearch.onkeypress = (keyPressed) => {
+
+      if(keyPressed.key === 'Enter' || userSearch.click === 'onclick'){
+        const {value} = this.root.querySelector('#input-search')
+
+        this.add(value)
+      }
+    }
+
+    userSearch.onclick = () => {
+      const {value} = this.root.querySelector('#input-search')
+
       this.add(value)
     }
   }
@@ -102,7 +112,12 @@ export class FavoritesView extends Favorites {
         if(isOk) {
           this.delete(user)
         }
+        //verifica se a lista está vazia
+        if(this.entries.length === 0) {
+          this.root.querySelector('.empty').classList.remove('hide')
+        }
       }
+      
 
       this.tbody.append(row)
     })
@@ -135,6 +150,10 @@ export class FavoritesView extends Favorites {
     
   removeAllTr() {  
 
+    if(this.entries.length !== 0){
+      this.root.querySelector('.empty').classList.add('hide')
+    }
+
     //pega todos os tr do tbody e para cada um deles executa a função
     this.tbody.querySelectorAll('tr')
       .forEach((tr) => {
@@ -143,3 +162,7 @@ export class FavoritesView extends Favorites {
   }
 
 }
+
+
+
+

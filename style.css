@@ -8,6 +8,7 @@
   font-size: 62.5%;
 
   --ff-primary: 'Roboto', sans-serif;
+  --ff-secundary: 'Roboto Mono', monospace;
   --primary-text-color: #E1E1E6;
   --secundary-text-color: #F75A68;
 
@@ -97,6 +98,41 @@ header {
   cursor: pointer;
 }
 
+.empty {
+  font-family: var(--ff-secundary);
+  color: #4E5455;
+  font-size: 4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  justify-content: center;
+
+}
+
+tbody { 
+  display: block;
+  max-height: 40rem;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+thead,
+tbody tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+tbody::-webkit-scrollbar {
+  width: .6rem;
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background-color: var(--tr-bg-secundary);    /* cor do scroll thumb */
+  border-radius: 10px; 
+}
+
 .search button:hover {
   background-color: #FFFFFF;
   color: var(--btn-primary-color);
@@ -109,8 +145,10 @@ header {
 table {
   width: 100%;
   border-collapse: collapse; /* tira os espaços entre os campos da tabela */
-  border: 1px solid var(--tr-bg-primary);
   margin-bottom: 11.6rem;
+  border: 2px solid var(--tr-bg-secundary);
+  border-radius: 1.2rem;
+  overflow: hidden;
 }
 
 table * {
@@ -126,11 +164,11 @@ table th {
 }
 
 table th:first-child {
-  border-top-left-radius: 1.2rem;
+  border-radius: 1.2rem 0 0 0;
 }
 
 table th:last-child {
-  border-top-right-radius: 1.2rem;
+  border-radius: 0 1.2rem 0 0;
 }
 
 table td {
@@ -140,12 +178,10 @@ table td {
 
 table tr:nth-child(odd) { /* odd = impar */
   background: var(--tr-bg-primary);
-  border: 1px solid var(--tr-bg-secundary);
 }
 
 table tr:nth-child(even) { /* even = par */
   background: var(--tr-bg-secundary);
-  border: 1px solid var(--tr-bg-secundary);
 }
 
 td.user {
@@ -181,4 +217,24 @@ td .remove {
   color: var(--secundary-text-color);
 
   cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.emptyImage { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+
+  padding: 18rem 0;
+
+}
+
+.emptyImage p {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 2.4rem;
 }
