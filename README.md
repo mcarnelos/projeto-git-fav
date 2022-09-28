@@ -31,4 +31,5 @@ abrir na IDE de preferência, no meu caso foi utilizado o Visual Studio Code.
 
 Murilo Carnelós
 
-https://www.linkedin.com/in/murilo-carnel%C3%B3s/
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/murilo-carnel%C3%B3s/)
